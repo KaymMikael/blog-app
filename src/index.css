@@ -1,8 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+:root {
+  --backGroundColor: #0f0e17;
+  --buttonBackgroundColor: #ff8906;
+  --textColor: #fffffe;
+  --paragraphColor: #a7a9be;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--backGroundColor);
+}
+
+.App {
+  max-width: 900px;
+  width: 80%;
+  margin-inline: auto;
+}
+
+.header{
+  color: var(--textColor);
+}
+
+.main{
+  color: var(--textColor);
+}
+
+.nav {
+  font-size: 1.2rem;
+  color: var(--textColor);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 0 24px;
+  justify-content: flex-end;
 }
