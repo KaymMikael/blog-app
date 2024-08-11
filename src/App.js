@@ -6,7 +6,7 @@ import NewPost from "./components/NewPost";
 import PostPage from "./components/PostPage";
 import Missing from "./components/Missing";
 import About from "./components/About";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Routes, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -14,11 +14,13 @@ const App = () => {
     <div className="App">
       <Header />
       <Nav />
-      <Home />
-      <NewPost />
-      <PostPage />
-      <About />
-      <Missing />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post" element={<NewPost />} />
+        <Route path="/post/:id" element={<PostPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Missing />} />
+      </Routes>
       <Footer />
     </div>
   );
