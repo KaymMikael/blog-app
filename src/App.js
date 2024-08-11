@@ -14,13 +14,15 @@ const App = () => {
     <div className="App">
       <Header />
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/post" element={<PostPage />} />
-        <Route path="/post/:id" element={<NewPost />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<Missing />} />
-      </Routes>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/post" element={<PostPage />} />
+          <Route path="/post/:id" element={<NewPost />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Missing />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );

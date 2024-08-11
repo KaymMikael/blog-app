@@ -2,9 +2,9 @@ import React from "react";
 
 const NewPost = () => {
   return (
-    <main className="main">
-      <h1>New Post</h1>
-    </main>
+    <div className="new-post">
+      <h1>New post</h1>
+    </div>
   );
 };
 
