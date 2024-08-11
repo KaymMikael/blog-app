@@ -2,7 +2,7 @@ import React from "react";
 
 const PostPage = () => {
   return (
-    <main className="name">
+    <main className="main">
       <h1>Post Page</h1>
     </main>
   );

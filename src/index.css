@@ -22,13 +22,12 @@ body {
   max-width: 900px;
   width: 80%;
   margin-inline: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header{
-  color: var(--textColor);
-}
-
-.main{
   color: var(--textColor);
 }
 
@@ -37,9 +36,29 @@ body {
   color: var(--textColor);
 }
 
+.main{
+  margin-top: 1rem;
+  color: var(--textColor);
+  flex: 1;
+}
+
+.footer {
+  color: var(--textColor);
+  text-align: center;
+}
+
 .nav-list {
   list-style: none;
   display: flex;
   gap: 0 24px;
   justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.introduction-headline{
+  text-align: center;
+}
+
+.introduction{
+  line-height: 2;
 }
