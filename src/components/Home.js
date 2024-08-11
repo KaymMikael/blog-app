@@ -6,7 +6,7 @@ const Home = () => {
       <h3 className="introduction-headline">
         Streamline Your Thoughts: Introducing Our New Blog App
       </h3>
-      <p className="introduction">
+      <p className="introduction-paragraph">
         In the digital age, sharing your ideas and stories with the world has
         never been easier. Our new blog app is designed to help you capture your
         thoughts, engage with readers, and manage your posts seamlessly. Whether

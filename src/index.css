@@ -59,6 +59,23 @@ body {
   text-align: center;
 }
 
-.introduction{
+.introduction-paragraph{
   line-height: 2;
+  color: var(--paragraphColor);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0;
+}
+
+.about-headline{
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.about-paragraph {
+  line-height: 2;
+  color: var(--paragraphColor);
 }
