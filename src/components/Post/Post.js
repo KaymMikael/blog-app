@@ -8,7 +8,7 @@ const Post = ({ post }) => {
         <h2 className="post-title">{post.title}</h2>
         <p className="post-date">{post.datetime}</p>
       </Link>
-      <p className="post-body">{(post.body).length <= 25 ? post.body : `${(post.body).slice(0,25)}`}...</p>
+      <p className="post-body">{(post.body).length <= 25 ? post.body : `${(post.body).slice(0,25)}...`}</p>
     </article>
   );
 };
