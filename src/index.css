@@ -7,7 +7,8 @@
   --paragraphColor: #a7a9be;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   padding: 0.7em;
   outline: none;
@@ -38,7 +39,7 @@ body {
   flex-direction: column;
 }
 
-.header{
+.header {
   font-size: 1.3rem;
   font-weight: bold;
   color: var(--headlineColor);
@@ -52,7 +53,7 @@ body {
   color: var(--headlineColor);
 }
 
-.main{
+.main {
   margin-top: 1rem;
   color: var(--headlineColor);
   flex: 1;
@@ -75,11 +76,11 @@ body {
   flex-direction: column;
 } */
 
-.introduction-headline{
+.introduction-headline {
   text-align: center;
 }
 
-.introduction-paragraph{
+.introduction-paragraph {
   line-height: 2;
   color: var(--paragraphColor);
 }
@@ -90,7 +91,7 @@ body {
   gap: 24px 0;
 }
 
-.about-headline{
+.about-headline {
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -106,7 +107,8 @@ body {
   color: var(--paragraphColor);
 }
 
-.button-delete-post {
+.button-delete-post,
+.button-create-post {
   cursor: pointer;
   margin-top: 0.8em;
   color: var(--headlineColor);
@@ -114,4 +116,20 @@ body {
   border: none;
   padding: 0.5em;
   border-radius: 4px;
+}
+
+/* New Post stye */
+
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .header {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 }
