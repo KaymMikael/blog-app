@@ -3,8 +3,19 @@
 :root {
   --backGroundColor: #0f0e17;
   --buttonBackgroundColor: #ff8906;
-  --textColor: #fffffe;
+  --headlineColor: #fffffe;
   --paragraphColor: #a7a9be;
+}
+
+input {
+  width: 100%;
+  padding: 0.7em;
+  outline: none;
+}
+
+a {
+  color: var(--headlineColor);
+  text-decoration: none;
 }
 
 * {
@@ -28,22 +39,27 @@ body {
 }
 
 .header{
-  color: var(--textColor);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--headlineColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav {
-  font-size: 1.2rem;
-  color: var(--textColor);
+  font-size: 1.3rem;
+  color: var(--headlineColor);
 }
 
 .main{
   margin-top: 1rem;
-  color: var(--textColor);
+  color: var(--headlineColor);
   flex: 1;
 }
 
 .footer {
-  color: var(--textColor);
+  color: var(--headlineColor);
   text-align: center;
 }
 
@@ -51,9 +67,13 @@ body {
   list-style: none;
   display: flex;
   gap: 0 24px;
-  justify-content: flex-end;
   flex-wrap: wrap;
 }
+
+/* .searchForm {
+  display: flex;
+  flex-direction: column;
+} */
 
 .introduction-headline{
   text-align: center;
@@ -78,4 +98,20 @@ body {
 .about-paragraph {
   line-height: 2;
   color: var(--paragraphColor);
+}
+
+/* Post Page style */
+
+.post-body {
+  color: var(--paragraphColor);
+}
+
+.button-delete-post {
+  cursor: pointer;
+  margin-top: 0.8em;
+  color: var(--headlineColor);
+  background-color: var(--buttonBackgroundColor);
+  border: none;
+  padding: 0.5em;
+  border-radius: 4px;
 }
