@@ -11,8 +11,8 @@ const EditPost = ({
   setEditTitle,
 }) => {
   const { id } = useParams();
-  
-  const post = posts.find(post => post.id === id);
+
+  const post = posts.find((post) => post.id === id);
 
   useEffect(() => {
     if (post) {
@@ -55,7 +55,7 @@ const EditPost = ({
           </form>
         </>
       )}
-      {!editTitle && <PostNotFound/>}
+      {!editTitle && <PostNotFound />}
     </div>
   );
 };

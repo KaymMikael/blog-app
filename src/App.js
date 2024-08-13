@@ -10,8 +10,7 @@ import About from "./components/About";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
-import api from "./api/posts";
-
+import postRequest from "./api/PostRequest";
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
@@ -24,19 +23,10 @@ const App = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await api.get("/posts");
+        const response = await postRequest.getAllPosts();
         setPosts(response.data);
-      } catch (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.error(error.response.data);
-          console.error(error.response.status);
-          console.error(error.response.headers);
-        } else {
-          // The request was made but no response was received
-          console.error(error.message);
-        }
+      } catch (e) {
+        console.error(e.message);
       }
     };
     fetchPosts();
@@ -60,26 +50,26 @@ const App = () => {
       body: editBody,
     };
     try {
-      const response = await api.put(`/posts/${id}`, updatedPost);
+      const response = await postRequest.editPost(id, updatedPost);
       setPosts(
         posts.map((post) => (post.id === id ? { ...response.data } : post))
       );
       setEditTitle("");
       setEditBody("");
       navigate("/");
-    } catch (error) {
-      console.error(error.message);
+    } catch (e) {
+      console.error(e.message);
     }
   };
 
   const handleDelete = async (id) => {
     try {
-      await api.delete(`/posts/${id}`);
+      await postRequest.deletePost(id);
       const postList = posts.filter((post) => post.id !== id);
       setPosts(postList);
       navigate("/");
-    } catch (error) {
-      console.error(error.message);
+    } catch (e) {
+      console.error(e.message);
     }
   };
 
@@ -88,20 +78,20 @@ const App = () => {
     const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     const newPost = {
-      id:id.toString(),
+      id: id.toString(),
       title: postTitle,
       datetime,
       body: postBody,
     };
     try {
-      const response = await api.post("/posts", newPost);
+      const response = await postRequest.createPost(newPost);
       const allPosts = [...posts, response.data];
       setPosts(allPosts);
       setPostitle("");
       setPostBody("");
       navigate("/");
-    } catch (error) {
-      console.error(error.message);
+    } catch (e) {
+      console.error(e.message);
     }
   };
 
@@ -111,11 +101,7 @@ const App = () => {
       <Nav search={search} setSearch={setSearch} />
       <main className="main">
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Home posts={searchResult} />}
-          />
+          <Route exact path="/" element={<Home posts={searchResult} />} />
           <Route
             exact
             path="/post"
