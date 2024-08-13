@@ -108,7 +108,8 @@ body {
 }
 
 .button-delete-post,
-.button-create-post {
+.button-create-post,
+.button-edit-post {
   cursor: pointer;
   margin-top: 0.8em;
   color: var(--headlineColor);
@@ -116,6 +117,7 @@ body {
   border: none;
   padding: 0.5em;
   border-radius: 4px;
+  margin-right: 0.8em;
 }
 
 /* New Post stye */
