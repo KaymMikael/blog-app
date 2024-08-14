@@ -13,6 +13,7 @@ import { format } from "date-fns";
 import { Post } from "./data/Post";
 import postRequest from "./api/PostRequest";
 import useWindowSize from "./hooks/useWindowSize";
+import useAxiosFetch from "./hooks/useAxios";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -25,20 +26,11 @@ const App = () => {
   const navigate = useNavigate();
   const {width} = useWindowSize();;
 
+  const {data, fetchError, isLoading} = useAxiosFetch('http://localhost:3500/posts');
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await postRequest.getAllPosts();
-        const data = response.data.map((postDetails) => {
-          return new Post(postDetails);
-        });
-        setPosts(data);
-      } catch (e) {
-        console.error(e.message);
-      }
-    };
-    fetchPosts();
-  }, []);
+    setPosts(data.map((data) => new Post(data)));
+  }, [data])
 
   useEffect(() => {
     const filteredResults = posts.filter(
@@ -109,7 +101,7 @@ const App = () => {
       <Nav search={search} setSearch={setSearch} />
       <main className="main">
         <Routes>
-          <Route exact path="/" element={<Home posts={searchResult} />} />
+          <Route exact path="/" element={<Home posts={searchResult} fetchError={fetchError} isLoading={isLoading} />} />
           <Route
             exact
             path="/post"

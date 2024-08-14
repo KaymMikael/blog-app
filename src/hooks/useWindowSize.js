@@ -10,19 +10,14 @@ const useWindowSize = () => {
     const handleResize = () => {
       setWindowSize({
         width: window.innerWidth,
-        height: windows.innerHeigth,
+        height: window.innerHeight,
       });
     };
     handleResize();
 
     window.addEventListener("resize", handleResize);
 
-    const cleanUp = () => {
-      console.log("useEffect changes");
-      window.removeEventListener("resize", handleResize);
-    };
-
-    return cleanUp;
+    return () => window.removeEventListener('resize', handleResize);
 
   }, []);
 

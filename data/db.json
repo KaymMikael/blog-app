@@ -11,6 +11,12 @@
       "title": "My Second Post",
       "datetime": "August 14, 2024 10:55:25 AM",
       "body": "this is my second post\n"
+    },
+    {
+      "id": "3",
+      "title": "new post",
+      "datetime": "August 14, 2024 11:52:29 AM",
+      "body": "this is a new post"
     }
   ]
 }
