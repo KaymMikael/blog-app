@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({ title }) => {
+const Header = ({ title, width }) => {
   return (
     <header className="header">
       <p>{title}</p>
