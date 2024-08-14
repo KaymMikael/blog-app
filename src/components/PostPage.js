@@ -1,10 +1,25 @@
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 import PostNotFound from "./Post/PostNotFound";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
+import postRequest from "../api/PostRequest";
 
-const PostPage = ({ posts, handleDelete }) => {
+const PostPage = () => {
+  const { posts, setPosts, navigate} = useContext(DataContext);
+
   const { id } = useParams();
   const post = posts.find((post) => post.id.toString() === id);
+
+  const handleDelete = async (id) => {
+    try {
+      await postRequest.deletePost(id);
+      const postList = posts.filter((post) => post.id !== id);
+      setPosts(postList);
+      navigate("/");
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
 
   return (
     <div className="post-page">

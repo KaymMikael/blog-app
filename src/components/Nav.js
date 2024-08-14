@@ -1,6 +1,9 @@
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
-const Nav = ({ search, setSearch }) => {
+const Nav = () => {
+  const {search, setSearch} = useContext(DataContext);
   return (
     <nav className="nav">
       <form className="searchForm" onSubmit={(e) => e.preventDefault()}>

@@ -1,12 +1,41 @@
-import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
+import { Post } from "../data/Post";
+import postRequest from "../api/PostRequest";
+const NewPost = () => {
+  const {
+    postTitle,
+    format,
+    setPostTitle,
+    postBody,
+    setPostBody,
+    posts,
+    setPosts,
+    navigate,
+  } = useContext(DataContext);
 
-const NewPost = ({
-  postTitle,
-  setPostTitle,
-  postBody,
-  setPostBody,
-  handleSubmit,
-}) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
+    const datetime = format(new Date(), "MMMM dd, yyyy pp");
+    const newPost = {
+      id: id.toString(),
+      title: postTitle,
+      datetime,
+      body: postBody,
+    };
+    try {
+      const response = await postRequest.createPost(newPost);
+      const allPosts = [...posts, new Post(response.data)];
+      setPosts(allPosts);
+      setPostTitle("");
+      setPostBody("");
+      navigate("/");
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
   return (
     <div className="new-post">
       <h2>New Post</h2>
