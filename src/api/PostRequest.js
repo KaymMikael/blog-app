@@ -1,7 +1,6 @@
 import api from "./posts";
 
 class PostRequest {
-  constructor() {}
 
   async getAllPosts() {
     const response = await api.get("/posts");

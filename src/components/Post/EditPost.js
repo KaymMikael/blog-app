@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PostNotFound from "./PostNotFound";
 
 const EditPost = ({
@@ -22,25 +22,25 @@ const EditPost = ({
   }, [post, setEditTitle, setEditBody]);
 
   return (
-    <div className="new-post">
+    <div className="edit-post">
       {editTitle && (
         <>
           <h2>Edit Post</h2>
-          <form className="new-post-form" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="post-title">Title:</label>
+          <form className="edit-post-form" onSubmit={(e) => e.preventDefault()}>
+            <label htmlFor="edit-post-title">Title:</label>
             <input
               type="text"
-              id="post-title"
+              id="edit-post-title"
               required
               value={editTitle}
               autoComplete="off"
               onChange={(e) => setEditTitle(e.target.value)}
             />
-            <label htmlFor="post-body">Post:</label>
+            <label htmlFor="edit-post-body">Post:</label>
             <textarea
-              name="post-body"
+              name="edit-post-body"
               autoComplete="off"
-              id="post-body"
+              id="edit-post-body"
               required
               value={editBody}
               onChange={(e) => setEditBody(e.target.value)}

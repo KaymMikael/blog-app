@@ -2,27 +2,15 @@
   "posts": [
     {
       "id": "1",
-      "title": "my first post",
-      "datetime": "August 13, 2024 12:37:29 PM",
-      "body": "this is my first post"
+      "title": "My First Post",
+      "datetime": "August 14, 2024 10:55:10 AM",
+      "body": "This is my first post"
     },
     {
       "id": "2",
-      "title": "second post",
-      "datetime": "August 13, 2024 12:37:35 PM",
-      "body": "this is my second post"
-    },
-    {
-      "id": "3",
-      "title": "third post",
-      "datetime": "August 13, 2024 12:37:43 PM",
-      "body": "this is my third post"
-    },
-    {
-      "id": "4",
-      "title": "fourth post",
-      "datetime": "August 13, 2024 12:38:10 PM",
-      "body": "this is my fourth post"
+      "title": "My Second Post",
+      "datetime": "August 14, 2024 10:55:25 AM",
+      "body": "this is my second post\n"
     }
   ]
 }

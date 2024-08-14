@@ -11,10 +11,10 @@ const NewPost = ({
     <div className="new-post">
       <h2>New Post</h2>
       <form className="new-post-form" onSubmit={handleSubmit}>
-        <label htmlFor="post-title">Title:</label>
+        <label htmlFor="new-post-title">Title:</label>
         <input
           type="text"
-          id="post-title"
+          id="new-post-title"
           required
           value={postTitle}
           autoComplete="off"
@@ -22,9 +22,9 @@ const NewPost = ({
         />
         <label htmlFor="post-body">Post:</label>
         <textarea
-          name="post-body"
+          name="new-post-body"
           autoComplete="off"
-          id="post-body"
+          id="new-post-body"
           required
           value={postBody}
           onChange={(e) => setPostBody(e.target.value)}

@@ -10,7 +10,9 @@ import About from "./components/About";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
+import { Post } from "./data/Post";
 import postRequest from "./api/PostRequest";
+
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
@@ -20,11 +22,15 @@ const App = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const response = await postRequest.getAllPosts();
-        setPosts(response.data);
+        const data = response.data.map((postDetails) => {
+          return new Post(postDetails);
+        });
+        setPosts(data);
       } catch (e) {
         console.error(e.message);
       }
@@ -52,7 +58,7 @@ const App = () => {
     try {
       const response = await postRequest.editPost(id, updatedPost);
       setPosts(
-        posts.map((post) => (post.id === id ? { ...response.data } : post))
+        posts.map((post) => (post.id === id ? new Post(response.data) : post))
       );
       setEditTitle("");
       setEditBody("");
@@ -85,7 +91,7 @@ const App = () => {
     };
     try {
       const response = await postRequest.createPost(newPost);
-      const allPosts = [...posts, response.data];
+      const allPosts = [...posts, new Post(response.data)];
       setPosts(allPosts);
       setPostitle("");
       setPostBody("");

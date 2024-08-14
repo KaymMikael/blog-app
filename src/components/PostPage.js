@@ -11,9 +11,7 @@ const PostPage = ({ posts, handleDelete }) => {
       <article className="post">
         {post ? (
           <>
-            <h2 className="post-title">{post.title}</h2>
-            <p className="post-date">{post.datetime}</p>
-            <p className="post-body">{post.body}</p>
+            {post.showInfo()}
             <Link to={`/edit/${post.id}`}>
               <button className="button-edit-post">Edit post</button>
             </Link>
